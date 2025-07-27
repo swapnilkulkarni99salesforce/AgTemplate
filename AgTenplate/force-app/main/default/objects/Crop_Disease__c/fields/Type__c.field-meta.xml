@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Disease Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fungal</fullName>
+                <default>false</default>
+                <label>Fungal</label>
+            </value>
+            <value>
+                <fullName>Bacterial</fullName>
+                <default>false</default>
+                <label>Bacterial</label>
+            </value>
+            <value>
+                <fullName>Viral</fullName>
+                <default>false</default>
+                <label>Viral</label>
+            </value>
+            <value>
+                <fullName>Parasitic</fullName>
+                <default>false</default>
+                <label>Parasitic</label>
+            </value>
+            <value>
+                <fullName>Nutritional</fullName>
+                <default>false</default>
+                <label>Nutritional</label>
+            </value>
+            <value>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+                <label>Environmental</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

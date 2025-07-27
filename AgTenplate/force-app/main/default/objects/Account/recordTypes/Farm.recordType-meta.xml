@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Farm</fullName>
+    <active>true</active>
+    <businessProcess>Account</businessProcess>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <description>Record type for agriculture farms, ranches, and agricultural operations</description>
+    <label>Farm</label>
+    <picklistValues>
+        <picklist>Agriculture_Type__c</picklist>
+        <values>
+            <fullName>Dairy Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cattle Ranch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corn Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Soybean Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wheat Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cotton Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rice Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vegetable Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fruit Orchard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vineyard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poultry Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hog Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mixed Crop Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organic Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grain Farm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry</picklist>
+        <values>
+            <fullName>Agriculture</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

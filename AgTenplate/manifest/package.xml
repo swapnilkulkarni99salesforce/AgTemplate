@@ -32,5 +32,24 @@
         <members>*</members>
         <name>StaticResource</name>
     </types>
+    <types>
+        <members>Account</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Account.Distributor</members>
+        <members>Account.Farm</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>Account.Agriculture_Type__c</members>
+        <members>Account.Farm_Size_Acres__c</members>
+        <members>Account.Primary_Equipment__c</members>
+        <members>Account.Farming_Region__c</members>
+        <members>Account.Certification__c</members>
+        <members>Account.Water_Source__c</members>
+        <members>Account.Soil_Type__c</members>
+        <name>CustomField</name>
+    </types>
     <version>64.0</version>
 </Package>

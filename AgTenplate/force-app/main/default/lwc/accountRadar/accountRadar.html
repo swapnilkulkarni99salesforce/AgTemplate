@@ -1,0 +1,180 @@
+<template>
+    <lightning-card title="Nearby Accounts" icon-name="standard:location">
+        <div slot="actions">
+            <div class="radius-slider-container">
+                <label class="slider-label">Search Radius</label>
+                <lightning-input 
+                    type="range" 
+                    label="Radius" 
+                    value={sliderValue} 
+                    onchange={handleRadiusChange}
+                    min="1" 
+                    max="20"
+                    step="1"
+                    variant="label-hidden"
+                    disabled={isCustomRadius}>
+                </lightning-input>
+                <div class="slider-range-labels">
+                    <span class="range-label-min">1 km</span>
+                    <span class="radius-value">{proximityRadius} km</span>
+                    <span class="range-label-max">20 km</span>
+                </div>
+                <template if:true={isCustomRadius}>
+                    <div class="custom-radius-note">
+                        <span class="custom-radius-text">Custom radius set via page property</span>
+                    </div>
+                </template>
+            </div>
+        </div>
+        
+        <div class="slds-p-around_medium">
+            <template if:true={isLoading}>
+                <div class="slds-text-align_center">
+                    <lightning-spinner alternative-text="Loading nearby accounts..." size="medium"></lightning-spinner>
+                </div>
+            </template>
+            
+            <template if:true={error}>
+                <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                    <span class="slds-assistive-text">Error</span>
+                    <h2>{error}</h2>
+                </div>
+            </template>
+            
+            <template if:true={showRadar}>
+                <div class="radar-container">
+                    <svg class="radar-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Radar rings with intuitive distance zones -->
+                        <g class="radar-rings">
+                            <!-- Far zone (outer ring) - Light red background -->
+                            <circle cx="200" cy="200" r="150" fill="#fff5f5" stroke="#e53e3e" stroke-width="3" opacity="0.6"></circle>
+                            <!-- Medium zone (middle ring) - Light yellow background -->
+                            <circle cx="200" cy="200" r="100" fill="#fffbeb" stroke="#d69e2e" stroke-width="3" opacity="0.6"></circle>
+                            <!-- Close zone (inner ring) - Light green background -->
+                            <circle cx="200" cy="200" r="50" fill="#f0fff4" stroke="#38a169" stroke-width="3" opacity="0.6"></circle>
+                        </g>
+                        
+                        <!-- Radar lines -->
+                        <g class="radar-lines">
+                            <line x1="200" y1="50" x2="200" y2="350" stroke="#e0e5ee" stroke-width="1" opacity="0.5"></line>
+                            <line x1="50" y1="200" x2="350" y2="200" stroke="#e0e5ee" stroke-width="1" opacity="0.5"></line>
+                        </g>
+                        
+                        <!-- Center point (current account) -->
+                        <circle cx="200" cy="200" r="8" fill="#1589ee" stroke="#ffffff" stroke-width="2">
+                            <title>Current Account</title>
+                        </circle>
+                        
+                        <!-- Nearby accounts -->
+                        <g class="nearby-accounts">
+                            <template for:each={nearbyAccounts} for:item="account">
+                                <circle 
+                                    key={account.Id} 
+                                    cx={account.x} 
+                                    cy={account.y} 
+                                    r="6" 
+                                    fill={account.color}
+                                    stroke="#ffffff" 
+                                    stroke-width="1"
+                                    class="account-dot"
+                                    data-account-id={account.Id}
+                                    onclick={handleAccountClick}>
+                                    <title>{account.Name} - {account.distanceText}</title>
+                                </circle>
+                            </template>
+                        </g>
+                    </svg>
+                    
+                    <!-- Legend -->
+                    <div class="radar-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #1589ee;"></div>
+                            <span>Current Account</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #38a169;"></div>
+                            <span>Nearby (0-33%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #d69e2e;"></div>
+                            <span>Medium (33-67%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #e53e3e;"></div>
+                            <span>Far (67-100%)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Account list -->
+                    <template if:true={nearbyAccounts}>
+                        <div class="account-list">
+                            <div class="account-list-header">
+                                <h3 class="slds-text-heading_small slds-m-top_medium slds-m-bottom_small">
+                                    Nearby Accounts ({nearbyAccounts.length})
+                                </h3>
+                                <div class="pagination-controls">
+                                    <div class="items-per-page">
+                                        <label for="itemsPerPage">Show:</label>
+                                        <select id="itemsPerPage" onchange={handleItemsPerPageChange} class="items-select">
+                                            <option value="5" selected={itemsPerPage5}>5</option>
+                                            <option value="10" selected={itemsPerPage10}>10</option>
+                                            <option value="20" selected={itemsPerPage20}>20</option>
+                                            <option value="50" selected={itemsPerPage50}>50</option>
+                                        </select>
+                                        <span>per page</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <template for:each={paginatedAccounts} for:item="account">
+                                <div key={account.Id} class="account-item" onclick={handleAccountClick} data-account-id={account.Id}>
+                                    <div class="account-item-indicator" style={account.colorStyle}></div>
+                                    <div class="account-item-details">
+                                        <div class="account-name">{account.Name}</div>
+                                        <div class="account-distance">{account.distanceText}</div>
+                                    </div>
+                                </div>
+                            </template>
+                            
+                            <!-- Pagination -->
+                            <template if:true={showPagination}>
+                                <div class="pagination-container">
+                                    <div class="page-info">{pageInfo}</div>
+                                    <div class="pagination-buttons">
+                                        <button 
+                                            class="pagination-btn prev-btn" 
+                                            onclick={handlePreviousPage}
+                                            disabled={isPreviousDisabled}>
+                                            <lightning-icon icon-name="utility:chevronleft" size="x-small"></lightning-icon>
+                                            Previous
+                                        </button>
+                                        
+                                        <div class="page-numbers">
+                                            <template for:each={pageNumbers} for:item="pageNum">
+                                                <button 
+                                                    key={pageNum} 
+                                                    class={pageNumClass}
+                                                    data-page={pageNum}
+                                                    onclick={handlePageChange}>
+                                                    {pageNum}
+                                                </button>
+                                            </template>
+                                        </div>
+                                        
+                                        <button 
+                                            class="pagination-btn next-btn" 
+                                            onclick={handleNextPage}
+                                            disabled={isNextDisabled}>
+                                            Next
+                                            <lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

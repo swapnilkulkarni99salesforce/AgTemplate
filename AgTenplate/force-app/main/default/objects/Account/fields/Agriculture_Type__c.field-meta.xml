@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agriculture_Type__c</fullName>
+    <description>Specific type of agriculture business</description>
+    <externalId>false</externalId>
+    <label>Agriculture Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Seed Distributor</fullName>
+                <default>false</default>
+                <label>Seed Distributor</label>
+            </value>
+            <value>
+                <fullName>Fertilizer Supplier</fullName>
+                <default>false</default>
+                <label>Fertilizer Supplier</label>
+            </value>
+            <value>
+                <fullName>Equipment Dealer</fullName>
+                <default>false</default>
+                <label>Equipment Dealer</label>
+            </value>
+            <value>
+                <fullName>Crop Protection</fullName>
+                <default>false</default>
+                <label>Crop Protection</label>
+            </value>
+            <value>
+                <fullName>Irrigation Systems</fullName>
+                <default>false</default>
+                <label>Irrigation Systems</label>
+            </value>
+            <value>
+                <fullName>Grain Handler</fullName>
+                <default>false</default>
+                <label>Grain Handler</label>
+            </value>
+            <value>
+                <fullName>Feed Supplier</fullName>
+                <default>false</default>
+                <label>Feed Supplier</label>
+            </value>
+            <value>
+                <fullName>Chemical Distributor</fullName>
+                <default>false</default>
+                <label>Chemical Distributor</label>
+            </value>
+            <value>
+                <fullName>Machinery Parts</fullName>
+                <default>false</default>
+                <label>Machinery Parts</label>
+            </value>
+            <value>
+                <fullName>Organic Products</fullName>
+                <default>false</default>
+                <label>Organic Products</label>
+            </value>
+            <value>
+                <fullName>Precision Agriculture</fullName>
+                <default>false</default>
+                <label>Precision Agriculture</label>
+            </value>
+            <value>
+                <fullName>Livestock Equipment</fullName>
+                <default>false</default>
+                <label>Livestock Equipment</label>
+            </value>
+            <value>
+                <fullName>Dairy Farm</fullName>
+                <default>false</default>
+                <label>Dairy Farm</label>
+            </value>
+            <value>
+                <fullName>Cattle Ranch</fullName>
+                <default>false</default>
+                <label>Cattle Ranch</label>
+            </value>
+            <value>
+                <fullName>Corn Farm</fullName>
+                <default>false</default>
+                <label>Corn Farm</label>
+            </value>
+            <value>
+                <fullName>Soybean Farm</fullName>
+                <default>false</default>
+                <label>Soybean Farm</label>
+            </value>
+            <value>
+                <fullName>Wheat Farm</fullName>
+                <default>false</default>
+                <label>Wheat Farm</label>
+            </value>
+            <value>
+                <fullName>Cotton Farm</fullName>
+                <default>false</default>
+                <label>Cotton Farm</label>
+            </value>
+            <value>
+                <fullName>Rice Farm</fullName>
+                <default>false</default>
+                <label>Rice Farm</label>
+            </value>
+            <value>
+                <fullName>Vegetable Farm</fullName>
+                <default>false</default>
+                <label>Vegetable Farm</label>
+            </value>
+            <value>
+                <fullName>Fruit Orchard</fullName>
+                <default>false</default>
+                <label>Fruit Orchard</label>
+            </value>
+            <value>
+                <fullName>Vineyard</fullName>
+                <default>false</default>
+                <label>Vineyard</label>
+            </value>
+            <value>
+                <fullName>Poultry Farm</fullName>
+                <default>false</default>
+                <label>Poultry Farm</label>
+            </value>
+            <value>
+                <fullName>Hog Farm</fullName>
+                <default>false</default>
+                <label>Hog Farm</label>
+            </value>
+            <value>
+                <fullName>Mixed Crop Farm</fullName>
+                <default>false</default>
+                <label>Mixed Crop Farm</label>
+            </value>
+            <value>
+                <fullName>Organic Farm</fullName>
+                <default>false</default>
+                <label>Organic Farm</label>
+            </value>
+            <value>
+                <fullName>Grain Farm</fullName>
+                <default>false</default>
+                <label>Grain Farm</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField> 

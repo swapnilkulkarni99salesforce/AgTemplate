@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Farm_Crop__c</fullName>
+    <label>Farm Crop</label>
+    <referenceTo>Farm_Crop__c</referenceTo>
+    <relationshipLabel>Farm Field Crop</relationshipLabel>
+    <relationshipName>Farm_Field_Crop</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

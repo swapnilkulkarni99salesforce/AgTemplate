@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Water_Source__c</fullName>
+    <description>Primary water source for the farm</description>
+    <externalId>false</externalId>
+    <label>Water Source</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Well</fullName>
+                <default>false</default>
+                <label>Well</label>
+            </value>
+            <value>
+                <fullName>Irrigation District</fullName>
+                <default>false</default>
+                <label>Irrigation District</label>
+            </value>
+            <value>
+                <fullName>River</fullName>
+                <default>false</default>
+                <label>River</label>
+            </value>
+            <value>
+                <fullName>Lake</fullName>
+                <default>false</default>
+                <label>Lake</label>
+            </value>
+            <value>
+                <fullName>Municipal</fullName>
+                <default>false</default>
+                <label>Municipal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField> 

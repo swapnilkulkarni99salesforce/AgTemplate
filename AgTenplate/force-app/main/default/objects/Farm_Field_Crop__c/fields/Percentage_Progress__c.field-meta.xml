@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Percentage_Progress__c</fullName>
+    <formula>IF(
+ISBLANK(Planting_or_Sowing_Date__c) || ISBLANK(Estimated_Harvesting_Date__c),
+0,
+IF(
+Estimated_Harvesting_Date__c &lt;= Planting_or_Sowing_Date__c,
+0,
+MAX(
+0,
+MIN(
+1,
+(TODAY() - Planting_or_Sowing_Date__c) / (Estimated_Harvesting_Date__c - Planting_or_Sowing_Date__c)
+)
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Percentage Progress</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

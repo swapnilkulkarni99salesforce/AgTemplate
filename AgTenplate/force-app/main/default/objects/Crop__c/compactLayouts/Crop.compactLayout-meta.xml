@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Crop</fullName>
+    <fields>Name</fields>
+    <fields>Type__c</fields>
+    <fields>Harvest_Time_Days__c</fields>
+    <fields>Growing_Season__c</fields>
+    <label>Crop</label>
+</CompactLayout>

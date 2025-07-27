@@ -1,0 +1,4 @@
+Name,Industry,Phone,Website,AnnualRevenue,NumberOfEmployees,Description,Rating,BillingStreet,BillingCity,BillingState,BillingPostalCode,BillingCountry
+Plains Enterprises,Agriculture,(319) 662-7990,www.plainsenterprises.com,44137682,309,Leading machinery parts serving the Minnesota region,Cold,875 Pine St,City1,Minnesota,45937,United States
+Southern Inc.,Agriculture,(515) 272-5705,www.southerninc.com,42165025,231,Leading fertilizer supplier serving the Tennessee region,Hot,4727 Washington Ln,City2,Tennessee,13507,United States
+Harvest Enterprises,Agriculture,(641) 529-1865,www.harvestenterprises.com,13175865,211,Leading livestock equipment serving the Nebraska region,Hot,3835 Madison Blvd,City3,Nebraska,63828,United States 
